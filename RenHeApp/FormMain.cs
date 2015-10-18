@@ -18,6 +18,11 @@ namespace RenHeApp
         {
             InitializeComponent();
 			dataTab = new DataTable();
+            #region
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.MaximumSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            this.WindowState = FormWindowState.Maximized;
+            #endregion
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -279,5 +284,30 @@ namespace RenHeApp
                 AddSubForm(frmPwd);
             }
         }
+
+
+        private void pictMinus_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void picPlus_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState != FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
+     
     }
 }
