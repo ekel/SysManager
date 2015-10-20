@@ -59,7 +59,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.panel1.Controls.Add(this.picClose);
             this.panel1.Controls.Add(this.picPlus);
             this.panel1.Controls.Add(this.pictMinus);
@@ -73,10 +73,11 @@
             // picClose
             // 
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picClose.BackColor = System.Drawing.Color.White;
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
-            this.picClose.Location = new System.Drawing.Point(560, 3);
+            this.picClose.Location = new System.Drawing.Point(564, 5);
             this.picClose.Name = "picClose";
-            this.picClose.Size = new System.Drawing.Size(32, 32);
+            this.picClose.Size = new System.Drawing.Size(30, 30);
             this.picClose.TabIndex = 6;
             this.picClose.TabStop = false;
             this.picClose.Click += new System.EventHandler(this.picClose_Click);
@@ -84,10 +85,11 @@
             // picPlus
             // 
             this.picPlus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picPlus.BackColor = System.Drawing.Color.White;
             this.picPlus.Image = ((System.Drawing.Image)(resources.GetObject("picPlus.Image")));
-            this.picPlus.Location = new System.Drawing.Point(506, 4);
+            this.picPlus.Location = new System.Drawing.Point(514, 5);
             this.picPlus.Name = "picPlus";
-            this.picPlus.Size = new System.Drawing.Size(32, 32);
+            this.picPlus.Size = new System.Drawing.Size(30, 30);
             this.picPlus.TabIndex = 5;
             this.picPlus.TabStop = false;
             this.picPlus.Click += new System.EventHandler(this.picPlus_Click);
@@ -95,10 +97,11 @@
             // pictMinus
             // 
             this.pictMinus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictMinus.BackColor = System.Drawing.Color.White;
             this.pictMinus.Image = ((System.Drawing.Image)(resources.GetObject("pictMinus.Image")));
-            this.pictMinus.Location = new System.Drawing.Point(455, 4);
+            this.pictMinus.Location = new System.Drawing.Point(464, 5);
             this.pictMinus.Name = "pictMinus";
-            this.pictMinus.Size = new System.Drawing.Size(32, 32);
+            this.pictMinus.Size = new System.Drawing.Size(30, 30);
             this.pictMinus.TabIndex = 4;
             this.pictMinus.TabStop = false;
             this.pictMinus.Click += new System.EventHandler(this.pictMinus_Click);
@@ -106,17 +109,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("隶书", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
+            this.label1.Font = new System.Drawing.Font("隶书", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(52, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(299, 20);
+            this.label1.Size = new System.Drawing.Size(329, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "仁 和 整 形 售 后 管 理 系 统";
             // 
             // menuStripMain
             // 
             this.menuStripMain.AutoSize = false;
-            this.menuStripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.menuStripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(208)))), ((int)(((byte)(214)))));
             this.menuStripMain.Font = new System.Drawing.Font("仿宋", 13F);
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.提醒管理ToolStripMenuItem,
@@ -173,7 +177,7 @@
             this.员工资料ToolStripMenuItem.Name = "员工资料ToolStripMenuItem";
             this.员工资料ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.员工资料ToolStripMenuItem.Text = "用户管理";
-            this.员工资料ToolStripMenuItem.Click += new System.EventHandler(this.员工资料ToolStripMenuItem_Click);            // 
+            this.员工资料ToolStripMenuItem.Click += new System.EventHandler(this.员工资料ToolStripMenuItem_Click);
             // 
             // 系统设置ToolStripMenuItem
             // 
@@ -189,7 +193,7 @@
             this.操作日志查询ToolStripMenuItem.Name = "操作日志查询ToolStripMenuItem";
             this.操作日志查询ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.操作日志查询ToolStripMenuItem.Text = "密码修改";
-            this.操作日志查询ToolStripMenuItem.Click += new System.EventHandler(this.操作日志查询ToolStripMenuItem_Click);            // 
+            this.操作日志查询ToolStripMenuItem.Click += new System.EventHandler(this.操作日志查询ToolStripMenuItem_Click);
             // 
             // 登录日志查询ToolStripMenuItem
             // 
