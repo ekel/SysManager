@@ -215,10 +215,10 @@ namespace RenHeApp
             sUser = txtUser.Text.Trim();
             sPswd = txtPwd.Text.Trim();
             sNote = txtNote.Text.Trim();
-            if (radioBtn1.Checked)
-                sRole = "0";
-            else
-                sRole = "1";
+            //if (radioBtn1.Checked)
+            //    sRole = "0";
+            //else
+            //    sRole = "1";
 
         }
         private bool GetDataFromDataTable()
@@ -244,10 +244,10 @@ namespace RenHeApp
             txtPwd.Text = sPswd;
             if (string.Compare(sRole, "0") == 0)
             {
-                radioBtn1.Checked = true;
+                //radioBtn1.Checked = true;
             }
             else
-                radioBtn2.Checked = true;
+                //radioBtn2.Checked = true;
             txtNote.Text = sNote;
         }
 
@@ -256,7 +256,7 @@ namespace RenHeApp
             txtUser.Text = string.Empty;
             txtPwd.Text = string.Empty;
             txtNote.Text = string.Empty;
-            radioBtn2.Checked = true;
+            //radioBtn2.Checked = true;
         }
 
         private void BtnInit()
@@ -276,5 +276,23 @@ namespace RenHeApp
 
             }
         }
+
+		private void treeViewRole_AfterCheck(object sender, TreeViewEventArgs e)
+		{
+			if (e.Action != TreeViewAction.Unknown && e.Node.Nodes.Count > 0)
+			{
+				foreach (TreeNode childNode in e.Node.Nodes)
+				{
+					childNode.Checked = e.Node.Checked;
+					if (childNode.Nodes.Count > 0)
+					{
+						foreach (TreeNode grandSonNode in childNode.Nodes)
+						{
+							grandSonNode.Checked = e.Node.Checked;
+						}
+					}
+				}
+			}			
+		}	
     }
 }

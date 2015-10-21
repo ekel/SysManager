@@ -125,6 +125,9 @@
     <Compile Include="SubFormUser.designer.cs">
       <DependentUpon>SubFormUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="subTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Token.cs" />
     <EmbeddedResource Include="Common.resx">
       <DependentUpon>Common.cs</DependentUpon>

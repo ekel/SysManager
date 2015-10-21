@@ -29,6 +29,43 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("提醒查询");
+			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("提醒添加");
+			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("提醒修改");
+			System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("提醒删除");
+			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("提醒管理", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
+			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("客户信息查询");
+			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("客户信息添加");
+			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("客户信息修改");
+			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("客户信息删除");
+			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("客户管理", new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode7,
+            treeNode8,
+            treeNode9});
+			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("用户信息查询");
+			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("用户信息添加");
+			System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("用户信息修改");
+			System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("用户信息删除");
+			System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("用户管理", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14});
+			System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("密码修改");
+			System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("日志查询");
+			System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("系统", new System.Windows.Forms.TreeNode[] {
+            treeNode16,
+            treeNode17});
+			System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("仁和整形售后管理系统", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode10,
+            treeNode15,
+            treeNode18});
 			this.rhdbs = new RenHeApp.rhdbs();
 			this.labID = new System.Windows.Forms.Label();
 			this.labNote = new System.Windows.Forms.Label();
@@ -36,8 +73,6 @@
 			this.labPswd = new System.Windows.Forms.Label();
 			this.txtUser = new System.Windows.Forms.TextBox();
 			this.txtPwd = new System.Windows.Forms.TextBox();
-			this.radioBtn1 = new System.Windows.Forms.RadioButton();
-			this.radioBtn2 = new System.Windows.Forms.RadioButton();
 			this.txtNote = new System.Windows.Forms.TextBox();
 			this.dataGridView = new System.Windows.Forms.DataGridView();
 			this.useridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +80,7 @@
 			this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.userinfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.labMsg = new System.Windows.Forms.Label();
+			this.treeViewRole = new RenHeApp.subTreeView();
 			this.tabSub.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -118,10 +154,9 @@
 			// 
 			// grpBox2
 			// 
+			this.grpBox2.Controls.Add(this.treeViewRole);
 			this.grpBox2.Controls.Add(this.labMsg);
 			this.grpBox2.Controls.Add(this.txtNote);
-			this.grpBox2.Controls.Add(this.radioBtn2);
-			this.grpBox2.Controls.Add(this.radioBtn1);
 			this.grpBox2.Controls.Add(this.txtPwd);
 			this.grpBox2.Controls.Add(this.txtUser);
 			this.grpBox2.Controls.Add(this.labPswd);
@@ -157,7 +192,7 @@
 			// labNote
 			// 
 			this.labNote.AutoSize = true;
-			this.labNote.Location = new System.Drawing.Point(40, 170);
+			this.labNote.Location = new System.Drawing.Point(40, 335);
 			this.labNote.Name = "labNote";
 			this.labNote.Size = new System.Drawing.Size(29, 12);
 			this.labNote.TabIndex = 1;
@@ -197,34 +232,12 @@
 			this.txtPwd.Size = new System.Drawing.Size(127, 21);
 			this.txtPwd.TabIndex = 6;
 			// 
-			// radioBtn1
-			// 
-			this.radioBtn1.AutoSize = true;
-			this.radioBtn1.Location = new System.Drawing.Point(100, 112);
-			this.radioBtn1.Name = "radioBtn1";
-			this.radioBtn1.Size = new System.Drawing.Size(59, 16);
-			this.radioBtn1.TabIndex = 8;
-			this.radioBtn1.Text = "管理员";
-			this.radioBtn1.UseVisualStyleBackColor = true;
-			// 
-			// radioBtn2
-			// 
-			this.radioBtn2.AutoSize = true;
-			this.radioBtn2.Checked = true;
-			this.radioBtn2.Location = new System.Drawing.Point(100, 134);
-			this.radioBtn2.Name = "radioBtn2";
-			this.radioBtn2.Size = new System.Drawing.Size(71, 16);
-			this.radioBtn2.TabIndex = 9;
-			this.radioBtn2.TabStop = true;
-			this.radioBtn2.Text = "非管理员";
-			this.radioBtn2.UseVisualStyleBackColor = true;
-			// 
 			// txtNote
 			// 
-			this.txtNote.Location = new System.Drawing.Point(100, 167);
+			this.txtNote.Location = new System.Drawing.Point(100, 331);
 			this.txtNote.Multiline = true;
 			this.txtNote.Name = "txtNote";
-			this.txtNote.Size = new System.Drawing.Size(241, 113);
+			this.txtNote.Size = new System.Drawing.Size(267, 86);
 			this.txtNote.TabIndex = 10;
 			// 
 			// dataGridView
@@ -285,6 +298,55 @@
 			this.labMsg.Size = new System.Drawing.Size(0, 12);
 			this.labMsg.TabIndex = 11;
 			// 
+			// treeViewRole
+			// 
+			this.treeViewRole.CheckBoxes = true;
+			this.treeViewRole.Location = new System.Drawing.Point(100, 108);
+			this.treeViewRole.Name = "treeViewRole";
+			treeNode1.Name = "remindSel";
+			treeNode1.Text = "提醒查询";
+			treeNode2.Name = "remindAdd";
+			treeNode2.Text = "提醒添加";
+			treeNode3.Name = "remindUpt";
+			treeNode3.Text = "提醒修改";
+			treeNode4.Name = "remindDel";
+			treeNode4.Text = "提醒删除";
+			treeNode5.Name = "remindMan";
+			treeNode5.Text = "提醒管理";
+			treeNode6.Name = "custSel";
+			treeNode6.Text = "客户信息查询";
+			treeNode7.Name = "custAdd";
+			treeNode7.Text = "客户信息添加";
+			treeNode8.Name = "custUpt";
+			treeNode8.Text = "客户信息修改";
+			treeNode9.Name = "custDel";
+			treeNode9.Text = "客户信息删除";
+			treeNode10.Name = "custMan";
+			treeNode10.Text = "客户管理";
+			treeNode11.Name = "userSel";
+			treeNode11.Text = "用户信息查询";
+			treeNode12.Name = "userAdd";
+			treeNode12.Text = "用户信息添加";
+			treeNode13.Name = "userUpt";
+			treeNode13.Text = "用户信息修改";
+			treeNode14.Name = "userDel";
+			treeNode14.Text = "用户信息删除";
+			treeNode15.Name = "userman";
+			treeNode15.Text = "用户管理";
+			treeNode16.Name = "pwdSet";
+			treeNode16.Text = "密码修改";
+			treeNode17.Name = "logSel";
+			treeNode17.Text = "日志查询";
+			treeNode18.Name = "system";
+			treeNode18.Text = "系统";
+			treeNode19.Name = "root";
+			treeNode19.Text = "仁和整形售后管理系统";
+			this.treeViewRole.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode19});
+			this.treeViewRole.Size = new System.Drawing.Size(172, 217);
+			this.treeViewRole.TabIndex = 12;
+			this.treeViewRole.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewRole_AfterCheck);
+			// 
 			// SubFormUser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -324,9 +386,7 @@
         private System.Windows.Forms.Label labPswd;
         private System.Windows.Forms.Label labRole;
         private System.Windows.Forms.Label labNote;
-        private System.Windows.Forms.TextBox txtUser;
-        private System.Windows.Forms.RadioButton radioBtn2;
-        private System.Windows.Forms.RadioButton radioBtn1;
+		private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.TextBox txtNote;
         public System.Windows.Forms.DataGridView dataGridView;
@@ -335,5 +395,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn useridDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
+		private subTreeView treeViewRole;
     }
 }
