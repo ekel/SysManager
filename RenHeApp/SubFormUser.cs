@@ -58,6 +58,7 @@ namespace RenHeApp
                 case OperateType.Detail:
                     break;
                 case OperateType.Insert:
+					getGrantFromTreeView();
                     AddData();
                     break;
                 case OperateType.Delete:
@@ -293,6 +294,26 @@ namespace RenHeApp
 					}
 				}
 			}			
-		}	
+		}
+
+		private void getGrantFromTreeView()
+		{
+
+			TreeNodeCollection nodes = treeViewRole.Nodes;
+
+			foreach (TreeNode childNode in nodes)
+			{
+				foreach (TreeNode tn in childNode.Nodes)
+				{
+					if (tn.Name == "root")
+					{
+
+
+					}
+				}
+				
+			}
+		}
+
     }
 }
