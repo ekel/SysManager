@@ -65,4 +65,12 @@ namespace RenHeApp
             set { _DataConnStr = value; }
         }
     }
+
+	public struct Menu
+	{
+		byte remindRole;
+		byte userRole;
+		byte custRole;
+
+	}
 }

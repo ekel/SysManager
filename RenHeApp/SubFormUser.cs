@@ -303,17 +303,84 @@ namespace RenHeApp
 
 			foreach (TreeNode childNode in nodes)
 			{
-				foreach (TreeNode tn in childNode.Nodes)
+				
+				setGrantValue(childNode);
+				
+			}
+		}
+		private void setGrantValue(TreeNode treeNode)
+		{
+
+			if (treeNode.Nodes.Count > 0)
+			{
+				foreach (TreeNode tn in treeNode.Nodes)
 				{
-					if (tn.Name == "root")
-					{
+					setGrantValue(tn);
+				}
+			}
+			else
+			{
 
+				if (treeNode.Name == "remindSel")
+				{
 
-					}
+				}
+				else if (treeNode.Name == "remindAdd")
+				{
+
+				}
+				else if (treeNode.Name == "remindUpt")
+				{
+
+				}
+				else if (treeNode.Name == "remindDel")
+				{
+
+				}
+				else if (treeNode.Name == "custSel")
+				{
+
+				}
+				else if (treeNode.Name == "custAdd")
+				{
+
+				}
+				else if (treeNode.Name == "custUpt")
+				{
+
+				}
+				else if (treeNode.Name == "custDel")
+				{
+
+				}
+				else if (treeNode.Name == "userSel")
+				{
+
+				}
+				else if (treeNode.Name == "userAdd")
+				{
+
+				}
+				else if (treeNode.Name == "userUpt")
+				{
+
+				}
+				else if (treeNode.Name == "userDel")
+				{
+
+				}
+				else if (treeNode.Name == "pwdSet")
+				{
+
+				}
+				else if (treeNode.Name == "logSel")
+				{
+
 				}
 				
 			}
 		}
+
 
     }
 }
