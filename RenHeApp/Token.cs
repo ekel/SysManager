@@ -8,6 +8,7 @@ namespace RenHeApp
 {
     public class Token
     {
+		
         public Token()
         {
             LoginUser = "";
@@ -66,11 +67,23 @@ namespace RenHeApp
         }
     }
 
-	public struct Menu
+	class MenuSet
 	{
-		byte remindRole;
-		byte userRole;
-		byte custRole;
+		public static byte remindSel = 0;
+		public static byte remindAdd = 0;
+		public static byte remindUpt = 0;
+		public static byte remindDel = 0;
+		public static byte custSel = 0;
+		public static byte custAdd = 0;
+		public static byte custUpt = 0;
+		public static byte custDel = 0;
+		public static byte userSel = 0;
+		public static byte userAdd = 0;
+		public static byte userUpt = 0;
+		public static byte userDel = 0;
+		public static byte pwdSet = 0;
+		public static byte logSel = 0;
 
 	}
+	 
 }

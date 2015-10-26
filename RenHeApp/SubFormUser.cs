@@ -323,7 +323,11 @@ namespace RenHeApp
 
 				if (treeNode.Name == "remindSel")
 				{
-
+					if (treeNode.Checked == true)
+						MenuSet.remindSel = 1;
+					else
+						MenuSet.remindSel = 0;
+					
 				}
 				else if (treeNode.Name == "remindAdd")
 				{
