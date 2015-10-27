@@ -12,7 +12,7 @@
   <xs:element name="rhdbs" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="rhdbs" msprop:Generator_UserDSName="rhdbs">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="cust_info" msprop:Generator_TableClassName="cust_infoDataTable" msprop:Generator_TableVarName="tablecust_info" msprop:Generator_TablePropName="cust_info" msprop:Generator_RowDeletingName="cust_infoRowDeleting" msprop:Generator_UserTableName="cust_info" msprop:Generator_RowChangingName="cust_infoRowChanging" msprop:Generator_RowEvHandlerName="cust_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="cust_infoRowDeleted" msprop:Generator_RowEvArgName="cust_infoRowChangeEvent" msprop:Generator_RowChangedName="cust_infoRowChanged" msprop:Generator_RowClassName="cust_infoRow">
+        <xs:element name="cust_info" msprop:Generator_TableClassName="cust_infoDataTable" msprop:Generator_TableVarName="tablecust_info" msprop:Generator_RowChangedName="cust_infoRowChanged" msprop:Generator_TablePropName="cust_info" msprop:Generator_RowDeletingName="cust_infoRowDeleting" msprop:Generator_RowChangingName="cust_infoRowChanging" msprop:Generator_RowEvHandlerName="cust_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="cust_infoRowDeleted" msprop:Generator_RowClassName="cust_infoRow" msprop:Generator_UserTableName="cust_info" msprop:Generator_RowEvArgName="cust_infoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cust_id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columncust_id" msprop:Generator_ColumnPropNameInRow="cust_id" msprop:Generator_ColumnPropNameInTable="cust_idColumn" msprop:Generator_UserColumnName="cust_id" type="xs:int" />
@@ -44,7 +44,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="remind" msprop:Generator_TableClassName="remindDataTable" msprop:Generator_TableVarName="tableremind" msprop:Generator_TablePropName="remind" msprop:Generator_RowDeletingName="remindRowDeleting" msprop:Generator_UserTableName="remind" msprop:Generator_RowChangingName="remindRowChanging" msprop:Generator_RowEvHandlerName="remindRowChangeEventHandler" msprop:Generator_RowDeletedName="remindRowDeleted" msprop:Generator_RowEvArgName="remindRowChangeEvent" msprop:Generator_RowChangedName="remindRowChanged" msprop:Generator_RowClassName="remindRow">
+        <xs:element name="remind" msprop:Generator_TableClassName="remindDataTable" msprop:Generator_TableVarName="tableremind" msprop:Generator_RowChangedName="remindRowChanged" msprop:Generator_TablePropName="remind" msprop:Generator_RowDeletingName="remindRowDeleting" msprop:Generator_RowChangingName="remindRowChanging" msprop:Generator_RowEvHandlerName="remindRowChangeEventHandler" msprop:Generator_RowDeletedName="remindRowDeleted" msprop:Generator_RowClassName="remindRow" msprop:Generator_UserTableName="remind" msprop:Generator_RowEvArgName="remindRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cust_id" msprop:Generator_ColumnVarNameInTable="columncust_id" msprop:Generator_ColumnPropNameInRow="cust_id" msprop:Generator_ColumnPropNameInTable="cust_idColumn" msprop:Generator_UserColumnName="cust_id" type="xs:int" />
@@ -61,13 +61,14 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="user_info" msprop:Generator_TableClassName="user_infoDataTable" msprop:Generator_TableVarName="tableuser_info" msprop:Generator_TablePropName="user_info" msprop:Generator_RowDeletingName="user_infoRowDeleting" msprop:Generator_UserTableName="user_info" msprop:Generator_RowChangingName="user_infoRowChanging" msprop:Generator_RowEvHandlerName="user_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="user_infoRowDeleted" msprop:Generator_RowEvArgName="user_infoRowChangeEvent" msprop:Generator_RowChangedName="user_infoRowChanged" msprop:Generator_RowClassName="user_infoRow">
+        <xs:element name="user_info" msprop:Generator_TableClassName="user_infoDataTable" msprop:Generator_TableVarName="tableuser_info" msprop:Generator_RowChangedName="user_infoRowChanged" msprop:Generator_TablePropName="user_info" msprop:Generator_RowDeletingName="user_infoRowDeleting" msprop:Generator_RowChangingName="user_infoRowChanging" msprop:Generator_RowEvHandlerName="user_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="user_infoRowDeleted" msprop:Generator_RowClassName="user_infoRow" msprop:Generator_UserTableName="user_info" msprop:Generator_RowEvArgName="user_infoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="user_id" msprop:Generator_ColumnVarNameInTable="columnuser_id" msprop:Generator_ColumnPropNameInRow="user_id" msprop:Generator_ColumnPropNameInTable="user_idColumn" msprop:Generator_UserColumnName="user_id" type="xs:string" minOccurs="0" />
               <xs:element name="pwd" msprop:Generator_ColumnVarNameInTable="columnpwd" msprop:Generator_ColumnPropNameInRow="pwd" msprop:Generator_ColumnPropNameInTable="pwdColumn" msprop:Generator_UserColumnName="pwd" type="xs:string" minOccurs="0" />
               <xs:element name="role" msprop:Generator_ColumnVarNameInTable="columnrole" msprop:Generator_ColumnPropNameInRow="role" msprop:Generator_ColumnPropNameInTable="roleColumn" msprop:Generator_UserColumnName="role" type="xs:string" minOccurs="0" />
               <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" type="xs:string" minOccurs="0" />
+              <xs:element name="menu_set" msprop:Generator_ColumnVarNameInTable="columnmenu_set" msprop:Generator_ColumnPropNameInRow="menu_set" msprop:Generator_ColumnPropNameInTable="menu_setColumn" msprop:Generator_UserColumnName="menu_set" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
