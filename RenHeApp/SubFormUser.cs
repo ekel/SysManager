@@ -18,6 +18,11 @@ namespace RenHeApp
         private string sPswd;
         private string sRole;
         private string sNote;
+		//private string[] strMenuSet=new string[800];
+		private string sMenuSet;
+		//private byte[] arrMenuSet;
+		private char[] chrMenuSet;
+		private const int MENU_NUM = 30;
 
         public SubFormUser(Token tk)
         {
@@ -37,13 +42,16 @@ namespace RenHeApp
             {
                 MessageBox.Show("初始化失败！");
             }
+
+			InitData();
+			
         }
 
         private void btnDtl_Click(object sender, EventArgs e)
         {
             base.OperType = OperateType.Detail;
             base.SwitchAdministration();
-            InitData();
+            InitFormData();
         }
 
         private void SubFormUser_Load(object sender, EventArgs e)
@@ -58,7 +66,7 @@ namespace RenHeApp
                 case OperateType.Detail:
                     break;
                 case OperateType.Insert:
-					getGrantFromTreeView();
+					
                     AddData();
                     break;
                 case OperateType.Delete:
@@ -120,10 +128,11 @@ namespace RenHeApp
             txtUser.ReadOnly = true;
             txtPwd.ReadOnly = true;
             txtNote.ReadOnly = true;
-            
+			dataGridView.ReadOnly = true;
+
             base.SwitchAdministration();
 
-            InitData();
+            InitFormData();
             
         }
 
@@ -137,16 +146,19 @@ namespace RenHeApp
             base.OperType = OperateType.Update;
             txtUser.ReadOnly = true;
             base.SwitchAdministration();
-            InitData();
+            InitFormData();
         }
 
+		// 添加一条记录
         private bool AddData()
         {
-            
-            GetDataFromForm();
+			getGrantFromTreeView();
+
+            SetFieldsValue();
             try
             {
-                rhdbs.user_info.Adduser_infoRow(sUser, sPswd, sRole, sNote);
+				rhdbs.user_info.Adduser_infoRow(sUser, sPswd, sRole, sNote, sMenuSet);
+
                 MySqlCommandBuilder scb = new MySqlCommandBuilder(dataAdapter);
                 scb.ReturnGeneratedIdentifiers = false;
                 dataAdapter.Update(rhdbs.user_info.GetChanges());
@@ -160,9 +172,11 @@ namespace RenHeApp
             return true;
         }
 
+		// 更新一条记录
         private bool UptData()
         {
-            GetDataFromForm();
+			getGrantFromTreeView();
+            SetFieldsValue();
             try
             {
                 rhdbs.user_info.Rows[dataGridView.CurrentRow.Index].BeginEdit();
@@ -170,6 +184,7 @@ namespace RenHeApp
                 rhdbs.user_info.Rows[dataGridView.CurrentRow.Index]["pwd"] = sPswd;
                 rhdbs.user_info.Rows[dataGridView.CurrentRow.Index]["role"] = sRole;
                 rhdbs.user_info.Rows[dataGridView.CurrentRow.Index]["note"] = sNote;
+				rhdbs.user_info.Rows[dataGridView.CurrentRow.Index]["menu_set"] = sMenuSet;
                 rhdbs.user_info.Rows[dataGridView.CurrentRow.Index].EndEdit();
                 MySqlCommandBuilder scb = new MySqlCommandBuilder(dataAdapter);
                 scb.ReturnGeneratedIdentifiers = false;
@@ -182,6 +197,8 @@ namespace RenHeApp
             }
             return true;
         }
+
+		// 删除一条记录
         private bool DelData()
         {
             
@@ -202,25 +219,26 @@ namespace RenHeApp
         }
 
 
-        private bool InitData()
+        private bool InitFormData()
         {
             if (!GetDataFromDataTable())
                 return false;
 
-            SetValueToForm();
+            SetFormValue();
 
             return true;
         }
-        private void GetDataFromForm()
+
+		// 设置表字段值
+        private void SetFieldsValue()
         {
             sUser = txtUser.Text.Trim();
             sPswd = txtPwd.Text.Trim();
             sNote = txtNote.Text.Trim();
-            //if (radioBtn1.Checked)
-            //    sRole = "0";
-            //else
-            //    sRole = "1";
-
+            
+			sMenuSet = new string(chrMenuSet);
+			//string s;
+			
         }
         private bool GetDataFromDataTable()
         {
@@ -239,17 +257,14 @@ namespace RenHeApp
             return true;
         }
 
-        private void SetValueToForm()
+		// 给字段赋值
+        private void SetFormValue()
         {
             txtUser.Text = sUser;
             txtPwd.Text = sPswd;
-            if (string.Compare(sRole, "0") == 0)
-            {
-                //radioBtn1.Checked = true;
-            }
-            else
-                //radioBtn2.Checked = true;
+            
             txtNote.Text = sNote;
+
         }
 
         private void ClearDataToForm()
@@ -296,6 +311,7 @@ namespace RenHeApp
 			}			
 		}
 
+		// 从界面treeview中取到设置的权限值
 		private void getGrantFromTreeView()
 		{
 
@@ -303,14 +319,14 @@ namespace RenHeApp
 
 			foreach (TreeNode childNode in nodes)
 			{
-				
 				setGrantValue(childNode);
-				
 			}
 		}
+
+		//string arrMenuSet;
+		// 设置用户操作权限位的值
 		private void setGrantValue(TreeNode treeNode)
 		{
-
 			if (treeNode.Nodes.Count > 0)
 			{
 				foreach (TreeNode tn in treeNode.Nodes)
@@ -324,64 +340,249 @@ namespace RenHeApp
 				if (treeNode.Name == "remindSel")
 				{
 					if (treeNode.Checked == true)
+					{
 						MenuSet.remindSel = 1;
+						chrMenuSet[0] = '1';
+					}
 					else
+					{
 						MenuSet.remindSel = 0;
+						//arrMenuSet[0] = 0;
+						//sMenuSet += "0";
+						chrMenuSet[0] = '0';
+					}
 					
 				}
 				else if (treeNode.Name == "remindAdd")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.remindAdd = 1;
+						//arrMenuSet[1] = 1;
+						chrMenuSet[1] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.remindAdd = 0;
+						//arrMenuSet[1] = 0;
+						chrMenuSet[1] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "remindUpt")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.remindUpt = 1;
+						//arrMenuSet[2] = 1;
+						chrMenuSet[2] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.remindUpt = 0;
+						//arrMenuSet[2] = 0;
+						chrMenuSet[2] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "remindDel")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.remindDel = 1;
+						//arrMenuSet[3] = 1;
+						chrMenuSet[3] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.remindDel = 0;
+						//arrMenuSet[3] = 0;
+						chrMenuSet[3] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "custSel")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.custSel = 1;
+						//arrMenuSet[4] = 1;
+						chrMenuSet[4] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.custSel = 0;
+						//arrMenuSet[4] = 0;
+						chrMenuSet[4] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "custAdd")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.custAdd = 1;
+						//arrMenuSet[5] = 1;
+						chrMenuSet[5] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.custAdd = 0;
+						//arrMenuSet[5] = 0;
+						chrMenuSet[5] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "custUpt")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.custUpt = 1;
+						//arrMenuSet[6] = 1;
+						chrMenuSet[6] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.custUpt = 0;
+						//arrMenuSet[6] = 0;
+						chrMenuSet[6] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "custDel")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.custDel = 1;
+						//arrMenuSet[7] = 1;
+						chrMenuSet[7] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.custDel = 0;
+						//arrMenuSet[7] = 0;
+						chrMenuSet[7] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "userSel")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.userSel = 1;
+						//arrMenuSet[8] = 1;
+						chrMenuSet[8] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.userSel = 0;
+						//arrMenuSet[8] = 0;
+						chrMenuSet[8] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "userAdd")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.userAdd = 1;
+						//arrMenuSet[9] = 1;
+						chrMenuSet[9] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.userAdd = 0;
+						//arrMenuSet[9] = 0;
+						chrMenuSet[9] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "userUpt")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.userUpt = 1;
+						//arrMenuSet[10] = 1;
+						chrMenuSet[10] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.userUpt = 0;
+						//arrMenuSet[10] = 0;
+						chrMenuSet[10] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "userDel")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.userDel = 1;
+						//arrMenuSet[11] = 1;
+						chrMenuSet[11] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.userDel = 0;
+						//arrMenuSet[11] = 0;
+						chrMenuSet[11] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "pwdSet")
 				{
-
+					if (treeNode.Checked == true)
+					{
+						MenuSet.pwdSet = 1;
+						//arrMenuSet[12] = 1;
+						chrMenuSet[12] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.pwdSet = 0;
+						//arrMenuSet[12] = 0;
+						chrMenuSet[12] = '0';
+						//sMenuSet += "0";
+					}
 				}
 				else if (treeNode.Name == "logSel")
 				{
+					if (treeNode.Checked == true)
+					{
+						MenuSet.logSel = 1;
+						//arrMenuSet[13] = 1;
+						chrMenuSet[13] = '1';
+						//sMenuSet += "1";
+					}
+					else
+					{
+						MenuSet.logSel = 0;
+						//arrMenuSet[13] = 0;
+						chrMenuSet[13] = '0';
+						//sMenuSet += "0";
+					}
+				}	
+			}
+		}
 
-				}
-				
+		private void InitData()
+		{
+			chrMenuSet = new char[MENU_NUM];
+			for (int i = 0; i < MENU_NUM; i++)
+			{
+				chrMenuSet[i] = '0';
 			}
 		}
 

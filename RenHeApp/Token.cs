@@ -19,7 +19,7 @@ namespace RenHeApp
             DataConnStr = "";
         }
 
-        public Token(string user, string pwd, Int32 role)
+        public Token(string user, string pwd, Int32 role=0)
         {
             LoginUser = user;
             Password = pwd;
@@ -67,7 +67,7 @@ namespace RenHeApp
         }
     }
 
-	class MenuSet
+	struct MenuSet
 	{
 		public static byte remindSel = 0;
 		public static byte remindAdd = 0;

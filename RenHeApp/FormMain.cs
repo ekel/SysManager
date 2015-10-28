@@ -14,6 +14,7 @@ namespace RenHeApp
 {
     public partial class FormMain : Form
     {
+		private string sMenuSet;
         public FormMain()
         {
             InitializeComponent();
@@ -100,10 +101,12 @@ namespace RenHeApp
                         MySqlDataAdapter tableAdapter = new MySqlDataAdapter(strSql, DataConn);
                         tableAdapter.Fill(dataTab);
                         // 取用户权限
-                        Int32 role = Convert.ToInt32(dataTab.Rows[0][2].ToString());
+                        //Int32 role = Convert.ToInt32(dataTab.Rows[0][2].ToString());
+						sMenuSet = dataTab.Rows[0][4].ToString();
+
 
                         // 获得登录令牌
-                        TheToken = new Token(sUser, sPswd, role);
+                        TheToken = new Token(sUser, sPswd);
                         TheToken.DataConn = DataConn;
                         TheToken.DataConnStr = DataConnStr;
 
