@@ -30,6 +30,27 @@ namespace RenHeApp
             {
                 MessageBox.Show("初始化失败！");
             }
+
+			// 菜单权限
+			if (MenuSet.remindSel == '1')
+				btnSel.Enabled = true;
+			else
+				btnSel.Enabled = false;
+
+			if (MenuSet.remindAdd == '1')
+				btnAdd.Enabled = true;
+			else
+				btnAdd.Enabled = false;
+
+			if (MenuSet.remindDel == '1')
+				btnDel.Enabled = true;
+			else
+				btnDel.Enabled = false;
+
+			if (MenuSet.remindUpt == '1')
+				btnUpt.Enabled = true;
+			else
+				btnUpt.Enabled = false;
         }
 
         private MySqlDataAdapter dataAdapter;

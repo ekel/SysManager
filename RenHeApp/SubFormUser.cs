@@ -110,6 +110,8 @@ namespace RenHeApp
         {
             base.OperType = OperateType.Insert;
             base.SwitchAdministration();
+			BtnInit();
+			ClearDataToForm();
         }
 
         private void btnSel_Click(object sender, EventArgs e)

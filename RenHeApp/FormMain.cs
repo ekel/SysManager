@@ -106,7 +106,7 @@ namespace RenHeApp
 
 						// 权限解析
 						RoleParse();
-
+						SetMenu();
                         // 获得登录令牌
                         TheToken = new Token(sUser, sPswd);
                         TheToken.DataConn = DataConn;
@@ -332,6 +332,14 @@ namespace RenHeApp
 			MenuSet.logSel = sMenuSet[13];
 
 		}
-     
+
+		private void SetMenu()
+		{
+			if (MenuSet.pwdSet == '0')
+				操作日志查询ToolStripMenuItem.Enabled = false;
+			if (MenuSet.logSel == '0')
+				this.登录日志查询ToolStripMenuItem.Enabled = false;
+
+		}
     }
 }
