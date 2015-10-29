@@ -104,6 +104,8 @@ namespace RenHeApp
                         //Int32 role = Convert.ToInt32(dataTab.Rows[0][2].ToString());
 						sMenuSet = dataTab.Rows[0][4].ToString();
 
+						// 权限解析
+						RoleParse();
 
                         // 获得登录令牌
                         TheToken = new Token(sUser, sPswd);
@@ -311,6 +313,25 @@ namespace RenHeApp
             this.Close();
             Application.Exit();
         }
+
+		private void RoleParse()
+		{
+			MenuSet.remindSel = sMenuSet[0];
+			MenuSet.remindAdd = sMenuSet[1];
+			MenuSet.remindUpt = sMenuSet[2];
+			MenuSet.remindDel = sMenuSet[3];
+			MenuSet.custSel = sMenuSet[4];
+			MenuSet.custAdd = sMenuSet[5];
+			MenuSet.custUpt = sMenuSet[6];
+			MenuSet.custDel = sMenuSet[7];
+			MenuSet.userSel = sMenuSet[8];
+			MenuSet.userAdd = sMenuSet[9];
+			MenuSet.userUpt = sMenuSet[10];
+			MenuSet.userDel = sMenuSet[11];
+			MenuSet.pwdSet = sMenuSet[12];
+			MenuSet.logSel = sMenuSet[13];
+
+		}
      
     }
 }

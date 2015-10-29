@@ -69,20 +69,20 @@ namespace RenHeApp
 
 	struct MenuSet
 	{
-		public static byte remindSel = 0;
-		public static byte remindAdd = 0;
-		public static byte remindUpt = 0;
-		public static byte remindDel = 0;
-		public static byte custSel = 0;
-		public static byte custAdd = 0;
-		public static byte custUpt = 0;
-		public static byte custDel = 0;
-		public static byte userSel = 0;
-		public static byte userAdd = 0;
-		public static byte userUpt = 0;
-		public static byte userDel = 0;
-		public static byte pwdSet = 0;
-		public static byte logSel = 0;
+		public static char remindSel = '0';
+		public static char remindAdd = '0';
+		public static char remindUpt = '0';
+		public static char remindDel = '0';
+		public static char custSel = '0';
+		public static char custAdd = '0';
+		public static char custUpt = '0';
+		public static char custDel = '0';
+		public static char userSel = '0';
+		public static char userAdd = '0';
+		public static char userUpt = '0';
+		public static char userDel = '0';
+		public static char pwdSet = '0';
+		public static char logSel = '0';
 
 	}
 	 

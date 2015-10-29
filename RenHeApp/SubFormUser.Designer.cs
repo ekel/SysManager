@@ -75,12 +75,12 @@
 			this.txtPwd = new System.Windows.Forms.TextBox();
 			this.txtNote = new System.Windows.Forms.TextBox();
 			this.dataGridView = new System.Windows.Forms.DataGridView();
-			this.useridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.userinfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.labMsg = new System.Windows.Forms.Label();
 			this.treeViewRole = new RenHeApp.subTreeView();
+			this.useridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tabSub.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -263,27 +263,6 @@
 			this.dataGridView.Size = new System.Drawing.Size(1186, 379);
 			this.dataGridView.TabIndex = 3;
 			// 
-			// useridDataGridViewTextBoxColumn
-			// 
-			this.useridDataGridViewTextBoxColumn.DataPropertyName = "user_id";
-			this.useridDataGridViewTextBoxColumn.HeaderText = "用户名";
-			this.useridDataGridViewTextBoxColumn.Name = "useridDataGridViewTextBoxColumn";
-			this.useridDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// roleDataGridViewTextBoxColumn
-			// 
-			this.roleDataGridViewTextBoxColumn.DataPropertyName = "role";
-			this.roleDataGridViewTextBoxColumn.HeaderText = "权限";
-			this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
-			this.roleDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// noteDataGridViewTextBoxColumn
-			// 
-			this.noteDataGridViewTextBoxColumn.DataPropertyName = "note";
-			this.noteDataGridViewTextBoxColumn.HeaderText = "备注";
-			this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
-			this.noteDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
 			// userinfoBindingSource
 			// 
 			this.userinfoBindingSource.DataMember = "user_info";
@@ -347,6 +326,28 @@
 			this.treeViewRole.TabIndex = 12;
 			this.treeViewRole.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewRole_AfterCheck);
 			// 
+			// useridDataGridViewTextBoxColumn
+			// 
+			this.useridDataGridViewTextBoxColumn.DataPropertyName = "user_id";
+			this.useridDataGridViewTextBoxColumn.HeaderText = "用户名";
+			this.useridDataGridViewTextBoxColumn.Name = "useridDataGridViewTextBoxColumn";
+			this.useridDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// roleDataGridViewTextBoxColumn
+			// 
+			this.roleDataGridViewTextBoxColumn.DataPropertyName = "role";
+			this.roleDataGridViewTextBoxColumn.HeaderText = "权限";
+			this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
+			this.roleDataGridViewTextBoxColumn.ReadOnly = true;
+			this.roleDataGridViewTextBoxColumn.Visible = false;
+			// 
+			// noteDataGridViewTextBoxColumn
+			// 
+			this.noteDataGridViewTextBoxColumn.DataPropertyName = "note";
+			this.noteDataGridViewTextBoxColumn.HeaderText = "备注";
+			this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
+			this.noteDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
 			// SubFormUser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -391,10 +392,10 @@
         private System.Windows.Forms.TextBox txtNote;
         public System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.BindingSource userinfoBindingSource;
-        private System.Windows.Forms.Label labMsg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn useridDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
+		private System.Windows.Forms.Label labMsg;
 		private subTreeView treeViewRole;
+		private System.Windows.Forms.DataGridViewTextBoxColumn useridDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
     }
 }

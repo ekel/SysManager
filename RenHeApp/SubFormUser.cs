@@ -44,6 +44,17 @@ namespace RenHeApp
             }
 
 			InitData();
+
+			// 菜单权限
+			if (MenuSet.userSel == '1')
+				btnSel.Enabled = true;
+			if (MenuSet.userAdd == '1')
+				btnAdd.Enabled = true;
+			if (MenuSet.userDel == '1')
+				btnDel.Enabled = true;
+			if (MenuSet.userUpt == '1')
+				btnUpt.Enabled = true;
+		
 			
         }
 
@@ -104,12 +115,7 @@ namespace RenHeApp
         private void btnSel_Click(object sender, EventArgs e)
         {
             btnDtl.Enabled = true;
-            if (TheToken.Role == 0)
-            {
-                btnAdd.Enabled = true;
-                btnDel.Enabled = true;
-                btnUpt.Enabled = true;
-            }
+            
 
             try
             {
@@ -341,14 +347,10 @@ namespace RenHeApp
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.remindSel = 1;
 						chrMenuSet[0] = '1';
 					}
 					else
 					{
-						MenuSet.remindSel = 0;
-						//arrMenuSet[0] = 0;
-						//sMenuSet += "0";
 						chrMenuSet[0] = '0';
 					}
 					
@@ -357,221 +359,146 @@ namespace RenHeApp
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.remindAdd = 1;
-						//arrMenuSet[1] = 1;
 						chrMenuSet[1] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.remindAdd = 0;
-						//arrMenuSet[1] = 0;
 						chrMenuSet[1] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "remindUpt")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.remindUpt = 1;
-						//arrMenuSet[2] = 1;
 						chrMenuSet[2] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.remindUpt = 0;
-						//arrMenuSet[2] = 0;
 						chrMenuSet[2] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "remindDel")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.remindDel = 1;
-						//arrMenuSet[3] = 1;
 						chrMenuSet[3] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.remindDel = 0;
-						//arrMenuSet[3] = 0;
 						chrMenuSet[3] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "custSel")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.custSel = 1;
-						//arrMenuSet[4] = 1;
 						chrMenuSet[4] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.custSel = 0;
-						//arrMenuSet[4] = 0;
 						chrMenuSet[4] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "custAdd")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.custAdd = 1;
-						//arrMenuSet[5] = 1;
 						chrMenuSet[5] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.custAdd = 0;
-						//arrMenuSet[5] = 0;
 						chrMenuSet[5] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "custUpt")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.custUpt = 1;
-						//arrMenuSet[6] = 1;
 						chrMenuSet[6] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.custUpt = 0;
-						//arrMenuSet[6] = 0;
 						chrMenuSet[6] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "custDel")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.custDel = 1;
-						//arrMenuSet[7] = 1;
 						chrMenuSet[7] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.custDel = 0;
-						//arrMenuSet[7] = 0;
 						chrMenuSet[7] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "userSel")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.userSel = 1;
-						//arrMenuSet[8] = 1;
 						chrMenuSet[8] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.userSel = 0;
-						//arrMenuSet[8] = 0;
 						chrMenuSet[8] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "userAdd")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.userAdd = 1;
-						//arrMenuSet[9] = 1;
 						chrMenuSet[9] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.userAdd = 0;
-						//arrMenuSet[9] = 0;
 						chrMenuSet[9] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "userUpt")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.userUpt = 1;
-						//arrMenuSet[10] = 1;
 						chrMenuSet[10] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.userUpt = 0;
-						//arrMenuSet[10] = 0;
 						chrMenuSet[10] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "userDel")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.userDel = 1;
-						//arrMenuSet[11] = 1;
+						
 						chrMenuSet[11] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.userDel = 0;
-						//arrMenuSet[11] = 0;
 						chrMenuSet[11] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "pwdSet")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.pwdSet = 1;
-						//arrMenuSet[12] = 1;
+						
 						chrMenuSet[12] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.pwdSet = 0;
-						//arrMenuSet[12] = 0;
 						chrMenuSet[12] = '0';
-						//sMenuSet += "0";
 					}
 				}
 				else if (treeNode.Name == "logSel")
 				{
 					if (treeNode.Checked == true)
 					{
-						MenuSet.logSel = 1;
-						//arrMenuSet[13] = 1;
+						
 						chrMenuSet[13] = '1';
-						//sMenuSet += "1";
 					}
 					else
 					{
-						MenuSet.logSel = 0;
-						//arrMenuSet[13] = 0;
 						chrMenuSet[13] = '0';
-						//sMenuSet += "0";
 					}
 				}	
 			}
