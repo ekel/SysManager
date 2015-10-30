@@ -285,6 +285,7 @@ namespace RenHeApp
                 sPswd = rhdbs.user_info.Rows[dataGridView.CurrentRow.Index]["pwd"].ToString();
                 sRole = rhdbs.user_info.Rows[dataGridView.CurrentRow.Index]["role"].ToString();
                 sNote = rhdbs.user_info.Rows[dataGridView.CurrentRow.Index]["note"].ToString();
+                sMenuSet = rhdbs.user_info.Rows[dataGridView.CurrentRow.Index]["menu_set"].ToString();
             }
             catch
             {
@@ -301,15 +302,17 @@ namespace RenHeApp
             txtPwd.Text = sPswd;
             
             txtNote.Text = sNote;
-
+            initTreeView();
+            // treeview
         }
-
+        
         private void ClearDataToForm()
         {
             txtUser.Text = string.Empty;
             txtPwd.Text = string.Empty;
             txtNote.Text = string.Empty;
             //radioBtn2.Checked = true;
+            clearTreeView();
         }
 
         private void BtnInit()
@@ -351,7 +354,7 @@ namespace RenHeApp
 		// 从界面treeview中取到设置的权限值
 		private void getGrantFromTreeView()
 		{
-
+            
 			TreeNodeCollection nodes = treeViewRole.Nodes;
 
 			foreach (TreeNode childNode in nodes)
@@ -544,6 +547,332 @@ namespace RenHeApp
 			}
 		}
 
+        // 给界面treeview设置值
+        private void initTreeView()
+        {
+            if (sMenuSet.Length >= MENU_NUM)
+            {
+                chrMenuSet = sMenuSet.ToCharArray(0, MENU_NUM);
+            }
+            else
+            {
+                return;
+            }
+            TreeNodeCollection nodes = treeViewRole.Nodes;
 
+            foreach (TreeNode childNode in nodes)
+            {
+                if (childNode.Name == "root")
+                {
+                    if (chrMenuSet[0] == '1' &&
+                        chrMenuSet[1] == '1' &&
+                        chrMenuSet[2] == '1' &&
+                        chrMenuSet[3] == '1' &&
+                        chrMenuSet[4] == '1' &&
+                        chrMenuSet[5] == '1' &&
+                        chrMenuSet[6] == '1' &&
+                        chrMenuSet[7] == '1' &&
+                        chrMenuSet[8] == '1' &&
+                        chrMenuSet[9] == '1' &&
+                        chrMenuSet[10] == '1' &&
+                        chrMenuSet[11] == '1' &&
+                        chrMenuSet[12] == '1' &&
+                        chrMenuSet[13] == '1')
+                    {
+                        childNode.Checked = true;
+                    }
+                }
+                setTreeViewValue(childNode);
+            }
+        }
+        
+        private void setTreeViewValue(TreeNode treeNode)
+        {
+            if (treeNode.Nodes.Count > 0)
+            {
+                if (treeNode.Name == "remindMan")
+                {
+                    if (chrMenuSet[0] == '1' &&
+                        chrMenuSet[1] == '1' &&
+                        chrMenuSet[2] == '1' &&
+                        chrMenuSet[3] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                }
+                else if (treeNode.Name == "userman")
+                {
+                    if (chrMenuSet[8] == '1' &&
+                        chrMenuSet[9] == '1' &&
+                        chrMenuSet[10] == '1' &&
+                        chrMenuSet[11] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                }
+                else if (treeNode.Name == "custMan")
+                {
+                    if (chrMenuSet[4] == '1' &&
+                        chrMenuSet[5] == '1' &&
+                        chrMenuSet[6] == '1' &&
+                        chrMenuSet[7] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                }
+                else if (treeNode.Name == "system")
+                {
+                    if (chrMenuSet[12] == '1' &&
+                        chrMenuSet[13] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                }
+                foreach (TreeNode tn in treeNode.Nodes)
+                {
+                    setTreeViewValue(tn);
+                }
+            }
+            else
+            {
+
+                if (treeNode.Name == "remindSel")
+                {
+                    if (chrMenuSet[0] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+
+                }
+                else if (treeNode.Name == "remindAdd")
+                {
+                    if (chrMenuSet[1] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "remindUpt")
+                {
+                    if (chrMenuSet[2] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "remindDel")
+                {
+                    if (chrMenuSet[3] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "custSel")
+                {
+                    if (chrMenuSet[4] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "custAdd")
+                {
+                    if (chrMenuSet[5] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "custUpt")
+                {
+                    if (chrMenuSet[6] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "custDel")
+                {
+                    if (chrMenuSet[7] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "userSel")
+                {
+                    if (chrMenuSet[8] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "userAdd")
+                {
+                    if (chrMenuSet[9] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "userUpt")
+                {
+                    if (chrMenuSet[10] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "userDel")
+                {
+                    if (chrMenuSet[11] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "pwdSet")
+                {
+                    if (chrMenuSet[12] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+                else if (treeNode.Name == "logSel")
+                {
+                    if (chrMenuSet[13] == '1')
+                    {
+                        treeNode.Checked = true;
+                    }
+                    else
+                    {
+                        treeNode.Checked = false;
+                    }
+                }
+               
+            }
+        }
+
+        private void clearTreeView()
+        {
+            TreeNodeCollection nodes = treeViewRole.Nodes;
+
+            foreach (TreeNode childNode in nodes)
+            {
+                clearTreeViewValue(childNode);
+            }
+        }
+        private void clearTreeViewValue(TreeNode treeNode)
+        {
+            if (treeNode.Nodes.Count > 0)
+            {
+                treeNode.Checked = false;
+                foreach (TreeNode tn in treeNode.Nodes)
+                {
+                    clearTreeViewValue(tn);
+                }
+            }
+            else
+            {
+                //if (treeNode.Name == "remindSel")
+                {
+                    treeNode.Checked = false;
+                }
+               /* else if (treeNode.Name == "remindAdd")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "remindUpt")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "remindDel")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "custSel")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "custAdd")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "custUpt")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "custDel")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "userSel")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "userAdd")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "userUpt")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "userDel")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "pwdSet")
+                {
+                    treeNode.Checked = false;
+                }
+                else if (treeNode.Name == "logSel")
+                {
+                    treeNode.Checked = false;
+                }*/
+            }
+        }
     }
 }
