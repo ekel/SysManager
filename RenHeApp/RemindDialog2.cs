@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace RenHeApp
 {
-    public partial class RemindDialog : Form
+    public partial class RemindDialog2 : Form
     {
-        public RemindDialog(ref rhdbs.askRemindDataTable dt)
+        public RemindDialog2(ref rhdbs.birthRemindDataTable dt)
         {
             InitializeComponent();
             dataTable = dt;
@@ -131,35 +131,6 @@ namespace RenHeApp
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("确定要清除该客户的提醒吗?","警告",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning) == DialogResult.OK)
-            {
-                int iIndex = dataGridView.SelectedRows[0].Index;
-                int iCurCount = (CurPage - 1) * 10 + iIndex;
-                dataTable.Rows[iCurCount].BeginEdit();
-                dataTable.Rows[iCurCount]["remind_flag"] = "否";
-                dataTable.Rows[iCurCount].EndEdit();
-
-                dataGridView.Rows.RemoveAt(iIndex);
-            }
-        }
-
-        private void btnClearAll_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("确定要清除全部提醒吗?", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-            {
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                {
-                    dataTable.Rows[i].BeginEdit();
-                    dataTable.Rows[i]["remind_flag"] = "否";
-                    dataTable.Rows[i].EndEdit();
-
-                    dataGridView.Rows.Clear();
-                }
-            }
-        }
-
         private void ChangeColor()
         {
             for (int i = 0; i < dataGridView.Rows.Count; i++)
@@ -199,16 +170,12 @@ namespace RenHeApp
             {
                 if (i < AllCount)
                 {
-                    string strRemindFlag = dataTable.Rows[i]["remind_flag"].ToString();
-                    if (strRemindFlag != "否")
-                    {
-                        int index = dataGridView.Rows.Add();
-                        DataGridViewRow row = dataGridView.Rows[index];
-                        row.Cells["id"].Value = i + 1;
-                        row.Cells["name"].Value = dataTable.Rows[i]["cust_name"].ToString();
-                        row.Cells["phone"].Value = dataTable.Rows[i]["phone"].ToString();
-                        row.Cells["level"].Value = dataTable.Rows[i]["level"].ToString();
-                    }
+                    int index = dataGridView.Rows.Add();
+                    DataGridViewRow row = dataGridView.Rows[index];
+                    row.Cells["id"].Value = i + 1;
+                    row.Cells["name"].Value = dataTable.Rows[i]["cust_name"].ToString();
+                    row.Cells["phone"].Value = dataTable.Rows[i]["phone"].ToString();
+                    row.Cells["level"].Value = dataTable.Rows[i]["level"].ToString();
                 }
             }
             ChangeColor();

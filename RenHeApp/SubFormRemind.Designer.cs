@@ -113,10 +113,12 @@
             // btnAdd
             // 
             this.btnAdd.Enabled = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDel
             // 
             this.btnDel.Enabled = false;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnUpt
             // 

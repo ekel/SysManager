@@ -1,1 +1,0 @@
-alter table rhdbs.user_info ADD menu_set varchar(800) DEFAULT ' ' NOT NULL;

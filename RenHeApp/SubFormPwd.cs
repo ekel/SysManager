@@ -22,6 +22,12 @@ namespace RenHeApp
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (MenuSet.pwdSet == '0')
+            {
+                MessageBox.Show("没有设置该权限！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string strPwd = txtPwd.Text.Trim();
             string strSel = string.Format("SELECT * FROM rhdbs.user_info WHERE user_id='{0}' AND pwd='{1}'", TheToken.LoginUser, strPwd);
 
@@ -51,7 +57,7 @@ namespace RenHeApp
                 dt.Rows[0]["pwd"] = txtPwdNew.Text;
                 dt.Rows[0].EndEdit();
                 MySqlCommandBuilder scb = new MySqlCommandBuilder(da);
-                scb.ReturnGeneratedIdentifiers = false;
+                //scb.ReturnGeneratedIdentifiers = false;
                 da.Update(dt.GetChanges());
                 dt.AcceptChanges();
             }

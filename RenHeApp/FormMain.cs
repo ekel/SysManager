@@ -106,7 +106,7 @@ namespace RenHeApp
 
 						// 权限解析
 						RoleParse();
-						SetMenu();
+						//SetMenu();
                         // 获得登录令牌
                         TheToken = new Token(sUser, sPswd);
                         TheToken.DataConn = DataConn;
@@ -136,6 +136,8 @@ namespace RenHeApp
             }
             frmLogin.Close();
 
+            // 生日提醒
+            RemindBirth();
             // 提醒功能线程
             Thread RemindThread = new Thread(Remind_Loop);
             RemindThread.Priority = ThreadPriority.Highest;
@@ -222,47 +224,95 @@ namespace RenHeApp
             }
         }
 
-        private void Remind_Loop()
+        private void RemindBirth()
         {
-            DataTable RemindTable = new DataTable("remind");
-            DataColumn dtc = new DataColumn("cust_id", typeof(Int32));
-            RemindTable.Columns.Add(dtc);
-            dtc = new DataColumn("cust_name", typeof(string));
-            RemindTable.Columns.Add(dtc);
-            dtc = new DataColumn("sex", typeof(string));
-            RemindTable.Columns.Add(dtc);
-            dtc = new DataColumn("tbtx", typeof(string));
-            RemindTable.Columns.Add(dtc);
-            dtc = new DataColumn("remind_flag", typeof(string));
-            RemindTable.Columns.Add(dtc);
-            DataColumn[] PrimaryKeyCols = new DataColumn[1];
-            PrimaryKeyCols[0] = RemindTable.Columns[0];
-            RemindTable.PrimaryKey = PrimaryKeyCols;
-            while (true)
-            {
-                if (DataConn.State == ConnectionState.Closed)
-                {
-                    DataConn.Open();
-                }
+            rhdbs.birthRemindDataTable RemindTable = new rhdbs.birthRemindDataTable();
 
-                string strSel = string.Format("SELECT cust_id,cust_name,sex,tbtx,remind_flag FROM rhdbs.cust_info WHERE remind_flag='是' AND remind_time <= NOW()");
-                MySqlDataAdapter da = new MySqlDataAdapter(strSel, DataConn);
+            // 查询列表
+            string strSelLst = "cust_id,cust_name,phone,level,birthday";
+            // 表列表
+            string strTabLst = "rhdbs.cust_info";
+            // 条件列表
+            string strCodLst = "DATE_FORMAT(birthday,'%m-%d') = DATE_FORMAT(NOW(),'%m-%d')";
+            // 排序列表
+            string strOrdLst = "level,cust_id";
+            string strSelSql = string.Format("SELECT {0} FROM {1} WHERE {2} ORDER BY {3}",
+                strSelLst, strTabLst, strCodLst, strOrdLst);
+
+            try
+            {
+                MySqlConnection sqlConn = new MySqlConnection(TheToken.DataConnStr);
+                sqlConn.Open();
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(strSelSql, sqlConn);
                 RemindTable.Clear();
-                da.Fill(RemindTable);
+                sqlDataAdapter.Fill(RemindTable);
+
                 if (RemindTable.Rows.Count > 0)
                 {
-                    RemindDialog diaRemind = new RemindDialog(ref RemindTable);
+                    RemindDialog2 diaRemind = new RemindDialog2(ref RemindTable);
                     diaRemind.ShowDialog();
-                    if (diaRemind.DialogResult == DialogResult.OK)
+                    if (diaRemind.DialogResult == DialogResult.Cancel)
                     {
-                        MySqlCommandBuilder scb = new MySqlCommandBuilder(da);
-                        scb.ReturnGeneratedIdentifiers = false;
-                        da.Update(RemindTable.GetChanges());
+                        MySqlCommandBuilder scb = new MySqlCommandBuilder(sqlDataAdapter);
+                        //scb.ReturnGeneratedIdentifiers = false;
+                        sqlDataAdapter.Update(RemindTable);
                         RemindTable.AcceptChanges();
                     }
                 }
+                sqlConn.Close();
+            }
+            catch
+            {
+                MessageBox.Show("查询客户生日提醒信息出错！");
+            }
+        }
+
+        private void Remind_Loop()
+        {
+            rhdbs.askRemindDataTable RemindTable = new rhdbs.askRemindDataTable();
+
+            while (true)
+            {
+                // 查询列表
+                string strSelLst = "cust_id,cust_name,phone,level,remind_flag";
+                // 表列表
+                string strTabLst = "rhdbs.cust_info";
+                // 条件列表
+                string strConLst = "remind_flag='是' AND remind_time <= NOW()";
+                // 排序列表
+                string strOrdLst = "level,cust_id";
+                string strSelSql = string.Format("SELECT {0} FROM {1} WHERE {2} ORDER BY {3}",
+                    strSelLst, strTabLst, strConLst, strOrdLst);
+
+                try
+                {
+                    MySqlConnection sqlConn = new MySqlConnection(TheToken.DataConnStr);
+                    sqlConn.Open();
+                    MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(strSelSql, sqlConn);
+                    RemindTable.Clear();
+                    sqlDataAdapter.Fill(RemindTable);
+
+                    if (RemindTable.Rows.Count > 0)
+                    {
+                        RemindDialog diaRemind = new RemindDialog(ref RemindTable);
+                        diaRemind.ShowDialog();
+                        if (diaRemind.DialogResult == DialogResult.Cancel)
+                        {
+                            MySqlCommandBuilder scb = new MySqlCommandBuilder(sqlDataAdapter);
+                            //scb.ReturnGeneratedIdentifiers = false;
+                            sqlDataAdapter.Update(RemindTable);
+                            RemindTable.AcceptChanges();
+                        }
+                    }
+                    sqlConn.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("查询客户咨询提醒信息出错！");
+                }
+
                 // 睡眠5分钟
-                Thread.Sleep(5*60*1000);
+                Thread.Sleep(5 * 60 * 1000);
             }
         }
 
@@ -330,16 +380,14 @@ namespace RenHeApp
 			MenuSet.userDel = sMenuSet[11];
 			MenuSet.pwdSet = sMenuSet[12];
 			MenuSet.logSel = sMenuSet[13];
-
 		}
 
-		private void SetMenu()
-		{
-			if (MenuSet.pwdSet == '0')
-				操作日志查询ToolStripMenuItem.Enabled = false;
-			if (MenuSet.logSel == '0')
-				this.登录日志查询ToolStripMenuItem.Enabled = false;
-
-		}
+        //private void SetMenu()
+        //{
+        //    if (MenuSet.pwdSet == '0')
+        //        操作日志查询ToolStripMenuItem.Enabled = false;
+        //    if (MenuSet.logSel == '0')
+        //        this.登录日志查询ToolStripMenuItem.Enabled = false;
+        //}
     }
 }

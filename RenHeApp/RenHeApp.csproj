@@ -48,6 +48,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">
       <HintPath>bin\MySql.Data.dll</HintPath>
@@ -85,8 +88,14 @@
     <Compile Include="RemindDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RemindDialog.Designer.cs">
+    <Compile Include="RemindDialog.designer.cs">
       <DependentUpon>RemindDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemindDialog2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemindDialog2.designer.cs">
+      <DependentUpon>RemindDialog2.cs</DependentUpon>
     </Compile>
     <Compile Include="rhdbs.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -104,8 +113,14 @@
     <Compile Include="SubFormCust.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubFormCust.Designer.cs">
+    <Compile Include="SubFormCust.designer.cs">
       <DependentUpon>SubFormCust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubFormPhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubFormPhoto.designer.cs">
+      <DependentUpon>SubFormPhoto.cs</DependentUpon>
     </Compile>
     <Compile Include="SubFormPwd.cs">
       <SubType>Form</SubType>
@@ -141,6 +156,9 @@
     <EmbeddedResource Include="RemindDialog.resx">
       <DependentUpon>RemindDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RemindDialog2.resx">
+      <DependentUpon>RemindDialog2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubFormBase.resx">
       <DependentUpon>SubFormBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +173,9 @@
     </Compile>
     <EmbeddedResource Include="SubFormCust.resx">
       <DependentUpon>SubFormCust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubFormPhoto.resx">
+      <DependentUpon>SubFormPhoto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubFormPwd.resx">
       <DependentUpon>SubFormPwd.cs</DependentUpon>
@@ -207,6 +228,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

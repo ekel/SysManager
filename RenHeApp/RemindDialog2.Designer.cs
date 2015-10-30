@@ -1,6 +1,6 @@
 ﻿namespace RenHeApp
 {
-    partial class RemindDialog
+    partial class RemindDialog2
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemindDialog));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemindDialog2));
             this.btnFirst = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnClearAll = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +40,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.labelText = new System.Windows.Forms.Label();
             this.btnLast = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -84,26 +83,6 @@
             this.btnPrev.Text = "上一页";
             this.btnPrev.UseVisualStyleBackColor = true;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(12, 20);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(94, 33);
-            this.btnClear.TabIndex = 4;
-            this.btnClear.Text = "清除当前提醒";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnClearAll
-            // 
-            this.btnClearAll.Location = new System.Drawing.Point(142, 20);
-            this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(101, 33);
-            this.btnClearAll.TabIndex = 4;
-            this.btnClearAll.Text = "清除全部提醒";
-            this.btnClearAll.UseVisualStyleBackColor = true;
-            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
             // dataGridView
             // 
@@ -163,13 +142,12 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.labelText);
             this.splitContainer1.Panel2.Controls.Add(this.btnPrev);
             this.splitContainer1.Panel2.Controls.Add(this.btnLast);
             this.splitContainer1.Panel2.Controls.Add(this.btnFirst);
-            this.splitContainer1.Panel2.Controls.Add(this.btnClearAll);
             this.splitContainer1.Panel2.Controls.Add(this.btnNext);
-            this.splitContainer1.Panel2.Controls.Add(this.btnClear);
             this.splitContainer1.Size = new System.Drawing.Size(593, 324);
             this.splitContainer1.SplitterDistance = 210;
             this.splitContainer1.TabIndex = 6;
@@ -196,16 +174,27 @@
             this.btnLast.UseVisualStyleBackColor = true;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
-            // RemindDialog
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(386, 14);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "以上客户在今天过生日！赶快送上生日祝福吧！(*^__^*)";
+            // 
+            // RemindDialog2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 324);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "RemindDialog";
+            this.Name = "RemindDialog2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "客户咨询提醒";
+            this.Text = "客户生日提醒";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.RemindDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -223,8 +212,6 @@
         private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrev;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnClearAll;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
@@ -233,5 +220,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.Label labelText;
+        private System.Windows.Forms.Label label1;
     }
 }

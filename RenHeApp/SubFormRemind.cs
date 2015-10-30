@@ -32,25 +32,25 @@ namespace RenHeApp
             }
 
 			// 菜单权限
-			if (MenuSet.remindSel == '1')
+			//if (MenuSet.remindSel == '1')
 				btnSel.Enabled = true;
-			else
-				btnSel.Enabled = false;
+			//else
+			//	btnSel.Enabled = false;
 
-			if (MenuSet.remindAdd == '1')
+			//if (MenuSet.remindAdd == '1')
 				btnAdd.Enabled = true;
-			else
-				btnAdd.Enabled = false;
+			//else
+			//	btnAdd.Enabled = false;
 
-			if (MenuSet.remindDel == '1')
+			//if (MenuSet.remindDel == '1')
 				btnDel.Enabled = true;
-			else
-				btnDel.Enabled = false;
+			//else
+			//	btnDel.Enabled = false;
 
-			if (MenuSet.remindUpt == '1')
+			//if (MenuSet.remindUpt == '1')
 				btnUpt.Enabled = true;
-			else
-				btnUpt.Enabled = false;
+			//else
+			//	btnUpt.Enabled = false;
         }
 
         private MySqlDataAdapter dataAdapter;
@@ -63,6 +63,12 @@ namespace RenHeApp
 
         private void btnSel_Click(object sender, EventArgs e)
         {
+            if (MenuSet.remindSel == '0')
+            {
+                MessageBox.Show("没有设置该权限！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 btnDtl.Enabled = true;
@@ -92,6 +98,12 @@ namespace RenHeApp
 
         private void btnDtl_Click(object sender, EventArgs e)
         {
+            if (MenuSet.remindSel == '0')
+            {
+                MessageBox.Show("没有设置该权限！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             OperType = OperateType.Detail;
             SwitchAdministration();
             SetEnabled(false);
@@ -99,6 +111,12 @@ namespace RenHeApp
 
         private void btnUpt_Click(object sender, EventArgs e)
         {
+            if (MenuSet.remindUpt == '0')
+            {
+                MessageBox.Show("没有设置该权限！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             OperType = OperateType.Update;
             SwitchAdministration();
             SetEnabled(true);
@@ -117,7 +135,7 @@ namespace RenHeApp
 	            rhdbs.remind.Rows[dataGridView.CurrentRow.Index]["cjjl"] = txtCjjl.Text;
                 rhdbs.remind.Rows[dataGridView.CurrentRow.Index].EndEdit();
                 MySqlCommandBuilder scb = new MySqlCommandBuilder(dataAdapter);
-                scb.ReturnGeneratedIdentifiers = false;
+                //scb.ReturnGeneratedIdentifiers = false;
                 dataAdapter.Update(rhdbs.remind.GetChanges());
                 rhdbs.remind.AcceptChanges();
             }
@@ -167,6 +185,24 @@ namespace RenHeApp
             txtDhzx.Enabled = able;
             txtTbtx.Enabled = able;
             txtCjjl.Enabled = able;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (MenuSet.remindAdd == '0')
+            {
+                MessageBox.Show("没有设置该权限！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (MenuSet.remindDel == '0')
+            {
+                MessageBox.Show("没有设置该权限！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
         }
     }
 }
