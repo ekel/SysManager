@@ -57,7 +57,7 @@ namespace RenHeApp
                 dt.Rows[0]["pwd"] = txtPwdNew.Text;
                 dt.Rows[0].EndEdit();
                 MySqlCommandBuilder scb = new MySqlCommandBuilder(da);
-                //scb.ReturnGeneratedIdentifiers = false;
+                scb.ReturnGeneratedIdentifiers = false;
                 da.Update(dt.GetChanges());
                 dt.AcceptChanges();
             }

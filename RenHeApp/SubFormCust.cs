@@ -18,10 +18,20 @@ namespace RenHeApp
             InitializeComponent();
 
             TheToken = tk;
+
+            SqlConn = new MySqlConnection(TheToken.DataConnStr);
+            SqlConn.Open();
+            // 客户详细资料
+            string sql1 = string.Format("SELECT * FROM cust_info");
+            CustDaDetails = new MySqlDataAdapter(sql1, SqlConn);
+            // 客户照片
+            string sql2 = string.Format("SELECT * FROM cust_photo");
+            CustDaPhotos = new MySqlDataAdapter(sql2, SqlConn);
         }
 
         private Token TheToken;
         private Int32 CurCustId;
+        private MySqlConnection SqlConn;
         private MySqlDataAdapter CustDaDetails;
         private MySqlDataAdapter CustDaPhotos;
 
@@ -102,7 +112,7 @@ namespace RenHeApp
             OperType = OperateType.Insert;
 
             CurCustId = GenerateCustId();
-            GetCustInfoById(CurCustId); // 此处只是为了获得数据适配器
+            GetCustInfoById(CurCustId);
 
             SwitchAdministration();
             SetEnabled(true);
@@ -176,7 +186,7 @@ namespace RenHeApp
             }
         }
 
-        private bool GetCustInfoById(Int64 iCustId)
+        private bool GetCustInfoById(Int32 iCustId)
         {
             try
             {
@@ -185,20 +195,16 @@ namespace RenHeApp
                 // 客户详细资料
                 string sql1 = string.Format("SELECT * FROM cust_info WHERE cust_id={0}",
                     iCustId);
-                CustDaDetails = new MySqlDataAdapter(sql1, conn);
-                MySqlCommandBuilder cb1 = new MySqlCommandBuilder(CustDaDetails);
-                //cb1.ReturnGeneratedIdentifiers = false;
+                MySqlDataAdapter da1 = new MySqlDataAdapter(sql1, conn);
                 rhdbs.cust_info.Clear();
-                CustDaDetails.Fill(rhdbs.cust_info);
+                da1.Fill(rhdbs.cust_info);
 
                 // 客户照片
                 string sql2 = string.Format("SELECT * FROM cust_photo WHERE cust_id={0} ORDER BY photo_id",
                     iCustId);
-                CustDaPhotos = new MySqlDataAdapter(sql2, conn);
-                MySqlCommandBuilder cb2 = new MySqlCommandBuilder(CustDaPhotos);
-                //cb2.ReturnGeneratedIdentifiers = false;
+                MySqlDataAdapter da2 = new MySqlDataAdapter(sql2, conn);
                 rhdbs.cust_photo.Clear();
-                CustDaPhotos.Fill(rhdbs.cust_photo);
+                da2.Fill(rhdbs.cust_photo);
                 conn.Close();
 
                 return true;
@@ -286,14 +292,14 @@ namespace RenHeApp
                 // 数据库操作
                 // 添加客户信息
                 MySqlCommandBuilder cb1 = new MySqlCommandBuilder(CustDaDetails);
-                //cb1.ReturnGeneratedIdentifiers = false;
+                cb1.ReturnGeneratedIdentifiers = false;
                 CustDaDetails.Update(rhdbs.cust_info.GetChanges());
                 rhdbs.cust_info.AcceptChanges();
                 // 添加客户照片
                 if (rhdbs.cust_photo.GetChanges() != null)
                 {
                     MySqlCommandBuilder cb2 = new MySqlCommandBuilder(CustDaPhotos);
-                    //cb2.ReturnGeneratedIdentifiers = false;
+                    cb2.ReturnGeneratedIdentifiers = false;
                     CustDaPhotos.Update(rhdbs.cust_photo.GetChanges());
                     rhdbs.cust_photo.AcceptChanges();
                 }
@@ -326,7 +332,7 @@ namespace RenHeApp
                 // 删除客户信息
                 rhdbs.cust_info.Rows[0].Delete();
                 MySqlCommandBuilder cb1 = new MySqlCommandBuilder(CustDaDetails);
-                //cb1.ReturnGeneratedIdentifiers = false;
+                cb1.ReturnGeneratedIdentifiers = false;
                 CustDaDetails.Update(rhdbs.cust_info.GetChanges());
                 rhdbs.cust_info.AcceptChanges();
                 // 删除客户照片
@@ -337,7 +343,7 @@ namespace RenHeApp
                         rhdbs.cust_photo.Rows[i].Delete();
                     }
                     MySqlCommandBuilder cb2 = new MySqlCommandBuilder(CustDaPhotos);
-                    //cb2.ReturnGeneratedIdentifiers = false;
+                    cb2.ReturnGeneratedIdentifiers = false;
                     CustDaPhotos.Update(rhdbs.cust_photo.GetChanges());
                     rhdbs.cust_photo.AcceptChanges();
                 }
@@ -380,14 +386,14 @@ namespace RenHeApp
                 rhdbs.cust_info.Rows[0]["cjjl"] = txtCjjl.Text;
                 rhdbs.cust_info.Rows[0].EndEdit();
                 MySqlCommandBuilder cb1 = new MySqlCommandBuilder(CustDaDetails);
-                //scb.ReturnGeneratedIdentifiers = false;
+                cb1.ReturnGeneratedIdentifiers = false;
                 CustDaDetails.Update(rhdbs.cust_info.GetChanges());
                 rhdbs.cust_info.AcceptChanges();
                 // 修改客户照片
                 if (rhdbs.cust_photo.GetChanges() != null)
                 {
                     MySqlCommandBuilder cb2 = new MySqlCommandBuilder(CustDaPhotos);
-                    //cb2.ReturnGeneratedIdentifiers = false;
+                    cb2.ReturnGeneratedIdentifiers = false;
                     CustDaPhotos.Update(rhdbs.cust_photo.GetChanges());
                     rhdbs.cust_photo.AcceptChanges();
                 }

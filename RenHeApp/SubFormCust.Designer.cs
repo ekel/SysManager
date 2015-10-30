@@ -29,8 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.cust_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cust_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.age = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.source = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rhdbs = new RenHeApp.rhdbs();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -74,12 +80,6 @@
             this.txtSelName = new System.Windows.Forms.TextBox();
             this.txtAge = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.cust_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cust_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.age = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.source = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabSub.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -220,14 +220,14 @@
             this.age,
             this.level,
             this.source});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
             this.dataGridView.MultiSelect = false;
@@ -237,6 +237,42 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(1186, 391);
             this.dataGridView.TabIndex = 3;
+            // 
+            // cust_id
+            // 
+            this.cust_id.HeaderText = "客户号";
+            this.cust_id.Name = "cust_id";
+            this.cust_id.ReadOnly = true;
+            // 
+            // cust_name
+            // 
+            this.cust_name.HeaderText = "客户姓名";
+            this.cust_name.Name = "cust_name";
+            this.cust_name.ReadOnly = true;
+            // 
+            // sex
+            // 
+            this.sex.HeaderText = "性别";
+            this.sex.Name = "sex";
+            this.sex.ReadOnly = true;
+            // 
+            // age
+            // 
+            this.age.HeaderText = "年龄";
+            this.age.Name = "age";
+            this.age.ReadOnly = true;
+            // 
+            // level
+            // 
+            this.level.HeaderText = "服务等级";
+            this.level.Name = "level";
+            this.level.ReadOnly = true;
+            // 
+            // source
+            // 
+            this.source.HeaderText = "来源";
+            this.source.Name = "source";
+            this.source.ReadOnly = true;
             // 
             // rhdbs
             // 
@@ -263,7 +299,7 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "phone", true));
+            this.txtPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "phone", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtPhone.Location = new System.Drawing.Point(62, 87);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 21);
@@ -286,7 +322,7 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "address", true));
+            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "address", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtAddress.Location = new System.Drawing.Point(62, 53);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(300, 21);
@@ -303,7 +339,7 @@
             // 
             // txtCompany
             // 
-            this.txtCompany.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "company", true));
+            this.txtCompany.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "company", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtCompany.Location = new System.Drawing.Point(450, 53);
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(200, 21);
@@ -320,7 +356,7 @@
             // 
             // txtSource
             // 
-            this.txtSource.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "source", true));
+            this.txtSource.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "source", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtSource.Location = new System.Drawing.Point(62, 121);
             this.txtSource.Name = "txtSource";
             this.txtSource.Size = new System.Drawing.Size(184, 21);
@@ -364,7 +400,7 @@
             // 
             // txtName
             // 
-            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "cust_name", true));
+            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "cust_name", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtName.Location = new System.Drawing.Point(62, 19);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(80, 21);
@@ -381,7 +417,7 @@
             // 
             // cmbSex
             // 
-            this.cmbSex.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "sex", true));
+            this.cmbSex.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "sex", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.cmbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSex.FormattingEnabled = true;
             this.cmbSex.Items.AddRange(new object[] {
@@ -395,7 +431,7 @@
             // dateTimeBirth
             // 
             this.dateTimeBirth.CustomFormat = "yyyy/MM/dd";
-            this.dateTimeBirth.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.custinfoBindingSource, "birthday", true));
+            this.dateTimeBirth.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.custinfoBindingSource, "birthday", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.dateTimeBirth.Location = new System.Drawing.Point(450, 19);
             this.dateTimeBirth.Name = "dateTimeBirth";
             this.dateTimeBirth.Size = new System.Drawing.Size(127, 21);
@@ -406,7 +442,7 @@
             // dateTimeAsk
             // 
             this.dateTimeAsk.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.dateTimeAsk.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.custinfoBindingSource, "ask_time", true));
+            this.dateTimeAsk.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.custinfoBindingSource, "ask_time", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.dateTimeAsk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimeAsk.Location = new System.Drawing.Point(253, 155);
             this.dateTimeAsk.Name = "dateTimeAsk";
@@ -454,7 +490,7 @@
             // dateTimeRemind
             // 
             this.dateTimeRemind.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.dateTimeRemind.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.custinfoBindingSource, "remind_time", true));
+            this.dateTimeRemind.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.custinfoBindingSource, "remind_time", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.dateTimeRemind.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimeRemind.Location = new System.Drawing.Point(203, 189);
             this.dateTimeRemind.Name = "dateTimeRemind";
@@ -464,7 +500,7 @@
             // 
             // cmbRemind
             // 
-            this.cmbRemind.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "remind_flag", true));
+            this.cmbRemind.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "remind_flag", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.cmbRemind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRemind.FormattingEnabled = true;
             this.cmbRemind.Items.AddRange(new object[] {
@@ -477,7 +513,7 @@
             // 
             // cmbLevel
             // 
-            this.cmbLevel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "level", true));
+            this.cmbLevel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "level", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.cmbLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLevel.FormattingEnabled = true;
             this.cmbLevel.Items.AddRange(new object[] {
@@ -492,7 +528,7 @@
             // 
             // cmbDeal
             // 
-            this.cmbDeal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "deal_flag", true));
+            this.cmbDeal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "deal_flag", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.cmbDeal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDeal.FormattingEnabled = true;
             this.cmbDeal.Items.AddRange(new object[] {
@@ -506,7 +542,7 @@
             // txtDhzx
             // 
             this.txtDhzx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtDhzx.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "dhzx", true));
+            this.txtDhzx.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "dhzx", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtDhzx.Location = new System.Drawing.Point(112, 252);
             this.txtDhzx.Multiline = true;
             this.txtDhzx.Name = "txtDhzx";
@@ -525,7 +561,7 @@
             // txtTbtx
             // 
             this.txtTbtx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtTbtx.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "tbtx", true));
+            this.txtTbtx.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "tbtx", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtTbtx.Location = new System.Drawing.Point(112, 354);
             this.txtTbtx.Multiline = true;
             this.txtTbtx.Name = "txtTbtx";
@@ -544,7 +580,7 @@
             // txtXczx
             // 
             this.txtXczx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtXczx.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "xczx", true));
+            this.txtXczx.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "xczx", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtXczx.Location = new System.Drawing.Point(598, 252);
             this.txtXczx.Multiline = true;
             this.txtXczx.Name = "txtXczx";
@@ -563,7 +599,7 @@
             // txtCjjl
             // 
             this.txtCjjl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtCjjl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "cjjl", true));
+            this.txtCjjl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "cjjl", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtCjjl.Location = new System.Drawing.Point(598, 354);
             this.txtCjjl.Multiline = true;
             this.txtCjjl.Name = "txtCjjl";
@@ -581,7 +617,7 @@
             // 
             // cmbAsk
             // 
-            this.cmbAsk.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "ask_flag", true));
+            this.cmbAsk.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.custinfoBindingSource, "ask_flag", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.cmbAsk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAsk.FormattingEnabled = true;
             this.cmbAsk.Items.AddRange(new object[] {
@@ -648,42 +684,6 @@
             this.label20.Size = new System.Drawing.Size(29, 12);
             this.label20.TabIndex = 1;
             this.label20.Text = "年龄";
-            // 
-            // cust_id
-            // 
-            this.cust_id.HeaderText = "客户号";
-            this.cust_id.Name = "cust_id";
-            this.cust_id.ReadOnly = true;
-            // 
-            // cust_name
-            // 
-            this.cust_name.HeaderText = "客户姓名";
-            this.cust_name.Name = "cust_name";
-            this.cust_name.ReadOnly = true;
-            // 
-            // sex
-            // 
-            this.sex.HeaderText = "性别";
-            this.sex.Name = "sex";
-            this.sex.ReadOnly = true;
-            // 
-            // age
-            // 
-            this.age.HeaderText = "年龄";
-            this.age.Name = "age";
-            this.age.ReadOnly = true;
-            // 
-            // level
-            // 
-            this.level.HeaderText = "服务等级";
-            this.level.Name = "level";
-            this.level.ReadOnly = true;
-            // 
-            // source
-            // 
-            this.source.HeaderText = "来源";
-            this.source.Name = "source";
-            this.source.ReadOnly = true;
             // 
             // SubFormCust
             // 

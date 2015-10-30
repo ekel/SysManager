@@ -135,7 +135,7 @@ namespace RenHeApp
 	            rhdbs.remind.Rows[dataGridView.CurrentRow.Index]["cjjl"] = txtCjjl.Text;
                 rhdbs.remind.Rows[dataGridView.CurrentRow.Index].EndEdit();
                 MySqlCommandBuilder scb = new MySqlCommandBuilder(dataAdapter);
-                //scb.ReturnGeneratedIdentifiers = false;
+                scb.ReturnGeneratedIdentifiers = false;
                 dataAdapter.Update(rhdbs.remind.GetChanges());
                 rhdbs.remind.AcceptChanges();
             }

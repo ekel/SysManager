@@ -254,7 +254,7 @@ namespace RenHeApp
                     if (diaRemind.DialogResult == DialogResult.Cancel)
                     {
                         MySqlCommandBuilder scb = new MySqlCommandBuilder(sqlDataAdapter);
-                        //scb.ReturnGeneratedIdentifiers = false;
+                        scb.ReturnGeneratedIdentifiers = false;
                         sqlDataAdapter.Update(RemindTable);
                         RemindTable.AcceptChanges();
                     }
@@ -299,7 +299,7 @@ namespace RenHeApp
                         if (diaRemind.DialogResult == DialogResult.Cancel)
                         {
                             MySqlCommandBuilder scb = new MySqlCommandBuilder(sqlDataAdapter);
-                            //scb.ReturnGeneratedIdentifiers = false;
+                            scb.ReturnGeneratedIdentifiers = false;
                             sqlDataAdapter.Update(RemindTable);
                             RemindTable.AcceptChanges();
                         }

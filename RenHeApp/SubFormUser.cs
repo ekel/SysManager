@@ -197,7 +197,7 @@ namespace RenHeApp
 				rhdbs.user_info.Adduser_infoRow(sUser, sPswd, sRole, sNote, sMenuSet);
 
                 MySqlCommandBuilder scb = new MySqlCommandBuilder(dataAdapter);
-                //scb.ReturnGeneratedIdentifiers = false;
+                scb.ReturnGeneratedIdentifiers = false;
                 dataAdapter.Update(rhdbs.user_info.GetChanges());
                 rhdbs.user_info.AcceptChanges();
             }
@@ -224,7 +224,7 @@ namespace RenHeApp
 				rhdbs.user_info.Rows[dataGridView.CurrentRow.Index]["menu_set"] = sMenuSet;
                 rhdbs.user_info.Rows[dataGridView.CurrentRow.Index].EndEdit();
                 MySqlCommandBuilder scb = new MySqlCommandBuilder(dataAdapter);
-                //scb.ReturnGeneratedIdentifiers = false;
+                scb.ReturnGeneratedIdentifiers = false;
                 dataAdapter.Update(rhdbs.user_info.GetChanges());
                 rhdbs.user_info.AcceptChanges();
             }
@@ -243,7 +243,7 @@ namespace RenHeApp
             {
                 rhdbs.user_info.Rows[dataGridView.CurrentRow.Index].Delete();
                 MySqlCommandBuilder scb = new MySqlCommandBuilder(dataAdapter);
-                //scb.ReturnGeneratedIdentifiers = false;
+                scb.ReturnGeneratedIdentifiers = false;
                 dataAdapter.Update(rhdbs.user_info.GetChanges());
                 rhdbs.user_info.AcceptChanges();
             }
