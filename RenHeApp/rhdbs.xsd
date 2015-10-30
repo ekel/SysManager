@@ -12,7 +12,7 @@
   <xs:element name="rhdbs" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="rhdbs" msprop:Generator_UserDSName="rhdbs">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="user_info" msprop:Generator_TableClassName="user_infoDataTable" msprop:Generator_TableVarName="tableuser_info" msprop:Generator_TablePropName="user_info" msprop:Generator_RowDeletingName="user_infoRowDeleting" msprop:Generator_UserTableName="user_info" msprop:Generator_RowChangingName="user_infoRowChanging" msprop:Generator_RowEvHandlerName="user_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="user_infoRowDeleted" msprop:Generator_RowEvArgName="user_infoRowChangeEvent" msprop:Generator_RowChangedName="user_infoRowChanged" msprop:Generator_RowClassName="user_infoRow">
+        <xs:element name="user_info" msprop:Generator_TableClassName="user_infoDataTable" msprop:Generator_TableVarName="tableuser_info" msprop:Generator_RowChangedName="user_infoRowChanged" msprop:Generator_TablePropName="user_info" msprop:Generator_RowDeletingName="user_infoRowDeleting" msprop:Generator_RowChangingName="user_infoRowChanging" msprop:Generator_RowEvHandlerName="user_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="user_infoRowDeleted" msprop:Generator_RowClassName="user_infoRow" msprop:Generator_UserTableName="user_info" msprop:Generator_RowEvArgName="user_infoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="user_id" msprop:Generator_ColumnVarNameInTable="columnuser_id" msprop:Generator_ColumnPropNameInRow="user_id" msprop:Generator_ColumnPropNameInTable="user_idColumn" msprop:Generator_UserColumnName="user_id" type="xs:string" minOccurs="0" />
@@ -23,16 +23,16 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="cust_photo" msprop:Generator_TableClassName="cust_photoDataTable" msprop:Generator_TableVarName="tablecust_photo" msprop:Generator_TablePropName="cust_photo" msprop:Generator_RowDeletingName="cust_photoRowDeleting" msprop:Generator_UserTableName="cust_photo" msprop:Generator_RowChangingName="cust_photoRowChanging" msprop:Generator_RowEvHandlerName="cust_photoRowChangeEventHandler" msprop:Generator_RowDeletedName="cust_photoRowDeleted" msprop:Generator_RowEvArgName="cust_photoRowChangeEvent" msprop:Generator_RowChangedName="cust_photoRowChanged" msprop:Generator_RowClassName="cust_photoRow">
+        <xs:element name="cust_photo" msprop:Generator_TableClassName="cust_photoDataTable" msprop:Generator_TableVarName="tablecust_photo" msprop:Generator_RowChangedName="cust_photoRowChanged" msprop:Generator_TablePropName="cust_photo" msprop:Generator_RowDeletingName="cust_photoRowDeleting" msprop:Generator_RowChangingName="cust_photoRowChanging" msprop:Generator_RowEvHandlerName="cust_photoRowChangeEventHandler" msprop:Generator_RowDeletedName="cust_photoRowDeleted" msprop:Generator_RowClassName="cust_photoRow" msprop:Generator_UserTableName="cust_photo" msprop:Generator_RowEvArgName="cust_photoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="photo_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnphoto_id" msprop:Generator_ColumnPropNameInRow="photo_id" msprop:Generator_ColumnPropNameInTable="photo_idColumn" msprop:Generator_UserColumnName="photo_id" type="xs:int" minOccurs="0" />
+              <xs:element name="photo_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnphoto_id" msprop:Generator_ColumnPropNameInRow="photo_id" msprop:Generator_ColumnPropNameInTable="photo_idColumn" msprop:Generator_UserColumnName="photo_id" type="xs:int" />
               <xs:element name="cust_id" msprop:Generator_ColumnVarNameInTable="columncust_id" msprop:Generator_ColumnPropNameInRow="cust_id" msprop:Generator_ColumnPropNameInTable="cust_idColumn" msprop:Generator_UserColumnName="cust_id" type="xs:int" minOccurs="0" />
               <xs:element name="photo" msprop:Generator_ColumnVarNameInTable="columnphoto" msprop:Generator_ColumnPropNameInRow="photo" msprop:Generator_ColumnPropNameInTable="photoColumn" msprop:Generator_UserColumnName="photo" type="xs:base64Binary" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="birthRemind" msprop:Generator_TableClassName="birthRemindDataTable" msprop:Generator_TableVarName="tablebirthRemind" msprop:Generator_TablePropName="birthRemind" msprop:Generator_RowDeletingName="birthRemindRowDeleting" msprop:Generator_UserTableName="birthRemind" msprop:Generator_RowChangingName="birthRemindRowChanging" msprop:Generator_RowEvHandlerName="birthRemindRowChangeEventHandler" msprop:Generator_RowDeletedName="birthRemindRowDeleted" msprop:Generator_RowEvArgName="birthRemindRowChangeEvent" msprop:Generator_RowChangedName="birthRemindRowChanged" msprop:Generator_RowClassName="birthRemindRow">
+        <xs:element name="birthRemind" msprop:Generator_TableClassName="birthRemindDataTable" msprop:Generator_TableVarName="tablebirthRemind" msprop:Generator_RowChangedName="birthRemindRowChanged" msprop:Generator_TablePropName="birthRemind" msprop:Generator_RowDeletingName="birthRemindRowDeleting" msprop:Generator_RowChangingName="birthRemindRowChanging" msprop:Generator_RowEvHandlerName="birthRemindRowChangeEventHandler" msprop:Generator_RowDeletedName="birthRemindRowDeleted" msprop:Generator_RowClassName="birthRemindRow" msprop:Generator_UserTableName="birthRemind" msprop:Generator_RowEvArgName="birthRemindRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cust_id" msprop:Generator_ColumnVarNameInTable="columncust_id" msprop:Generator_ColumnPropNameInRow="cust_id" msprop:Generator_ColumnPropNameInTable="cust_idColumn" msprop:Generator_UserColumnName="cust_id" type="xs:string" />
@@ -43,7 +43,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="cust_info" msprop:Generator_TableClassName="cust_infoDataTable" msprop:Generator_TableVarName="tablecust_info" msprop:Generator_TablePropName="cust_info" msprop:Generator_RowDeletingName="cust_infoRowDeleting" msprop:Generator_UserTableName="cust_info" msprop:Generator_RowChangingName="cust_infoRowChanging" msprop:Generator_RowEvHandlerName="cust_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="cust_infoRowDeleted" msprop:Generator_RowEvArgName="cust_infoRowChangeEvent" msprop:Generator_RowChangedName="cust_infoRowChanged" msprop:Generator_RowClassName="cust_infoRow">
+        <xs:element name="cust_info" msprop:Generator_TableClassName="cust_infoDataTable" msprop:Generator_TableVarName="tablecust_info" msprop:Generator_RowChangedName="cust_infoRowChanged" msprop:Generator_TablePropName="cust_info" msprop:Generator_RowDeletingName="cust_infoRowDeleting" msprop:Generator_RowChangingName="cust_infoRowChanging" msprop:Generator_RowEvHandlerName="cust_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="cust_infoRowDeleted" msprop:Generator_RowClassName="cust_infoRow" msprop:Generator_UserTableName="cust_info" msprop:Generator_RowEvArgName="cust_infoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cust_id" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columncust_id" msprop:Generator_ColumnPropNameInRow="cust_id" msprop:Generator_ColumnPropNameInTable="cust_idColumn" msprop:Generator_UserColumnName="cust_id" type="xs:int" />
@@ -74,7 +74,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="askRemind" msprop:Generator_TableClassName="askRemindDataTable" msprop:Generator_TableVarName="tableaskRemind" msprop:Generator_TablePropName="askRemind" msprop:Generator_RowDeletingName="askRemindRowDeleting" msprop:Generator_UserTableName="askRemind" msprop:Generator_RowChangingName="askRemindRowChanging" msprop:Generator_RowEvHandlerName="askRemindRowChangeEventHandler" msprop:Generator_RowDeletedName="askRemindRowDeleted" msprop:Generator_RowEvArgName="askRemindRowChangeEvent" msprop:Generator_RowChangedName="askRemindRowChanged" msprop:Generator_RowClassName="askRemindRow">
+        <xs:element name="askRemind" msprop:Generator_TableClassName="askRemindDataTable" msprop:Generator_TableVarName="tableaskRemind" msprop:Generator_RowChangedName="askRemindRowChanged" msprop:Generator_TablePropName="askRemind" msprop:Generator_RowDeletingName="askRemindRowDeleting" msprop:Generator_RowChangingName="askRemindRowChanging" msprop:Generator_RowEvHandlerName="askRemindRowChangeEventHandler" msprop:Generator_RowDeletedName="askRemindRowDeleted" msprop:Generator_RowClassName="askRemindRow" msprop:Generator_UserTableName="askRemind" msprop:Generator_RowEvArgName="askRemindRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cust_id" msprop:Generator_ColumnVarNameInTable="columncust_id" msprop:Generator_ColumnPropNameInRow="cust_id" msprop:Generator_ColumnPropNameInTable="cust_idColumn" msprop:Generator_UserColumnName="cust_id" type="xs:string" />
@@ -85,7 +85,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="remind" msprop:Generator_TableClassName="remindDataTable" msprop:Generator_TableVarName="tableremind" msprop:Generator_TablePropName="remind" msprop:Generator_RowDeletingName="remindRowDeleting" msprop:Generator_UserTableName="remind" msprop:Generator_RowChangingName="remindRowChanging" msprop:Generator_RowEvHandlerName="remindRowChangeEventHandler" msprop:Generator_RowDeletedName="remindRowDeleted" msprop:Generator_RowEvArgName="remindRowChangeEvent" msprop:Generator_RowChangedName="remindRowChanged" msprop:Generator_RowClassName="remindRow">
+        <xs:element name="remind" msprop:Generator_TableClassName="remindDataTable" msprop:Generator_TableVarName="tableremind" msprop:Generator_RowChangedName="remindRowChanged" msprop:Generator_TablePropName="remind" msprop:Generator_RowDeletingName="remindRowDeleting" msprop:Generator_RowChangingName="remindRowChanging" msprop:Generator_RowEvHandlerName="remindRowChangeEventHandler" msprop:Generator_RowDeletedName="remindRowDeleted" msprop:Generator_RowClassName="remindRow" msprop:Generator_UserTableName="remind" msprop:Generator_RowEvArgName="remindRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cust_id" msprop:Generator_ColumnVarNameInTable="columncust_id" msprop:Generator_ColumnPropNameInRow="cust_id" msprop:Generator_ColumnPropNameInTable="cust_idColumn" msprop:Generator_UserColumnName="cust_id" type="xs:int" />
@@ -107,6 +107,10 @@
     <xs:unique name="user_infoKey1">
       <xs:selector xpath=".//mstns:user_info" />
       <xs:field xpath="mstns:user_id" />
+    </xs:unique>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:cust_photo" />
+      <xs:field xpath="mstns:photo_id" />
     </xs:unique>
     <xs:unique name="askRemindKey1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:birthRemind" />

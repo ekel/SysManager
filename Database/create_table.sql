@@ -1,7 +1,6 @@
-
 use rhdbs;
 
-#用户
+#user
 DROP TABLE IF EXISTS rhdbs.user_info;
 create table rhdbs.user_info (
 	user_id varchar(30)	DEFAULT ' ' NOT NULL,
@@ -12,7 +11,7 @@ create table rhdbs.user_info (
 PRIMARY KEY(user_id)
 );
 
-#客户信息
+#customer
 DROP TABLE IF EXISTS rhdbs.cust_info;
 CREATE TABLE rhdbs.cust_info (
 	cust_id			INT(10)			NOT NULL AUTO_INCREMENT,
@@ -43,7 +42,7 @@ CREATE TABLE rhdbs.cust_info (
 PRIMARY KEY(cust_id)
 );
 
-#客户照片
+#customer photo
 DROP TABLE IF EXISTS rhdbs.cust_photo;
 CREATE TABLE rhdbs.cust_photo (
 	photo_id		INT(10)      	NOT NULL AUTO_INCREMENT,
