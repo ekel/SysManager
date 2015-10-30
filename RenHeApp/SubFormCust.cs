@@ -567,7 +567,10 @@ namespace RenHeApp
             }
             SubFormPhoto frmPhoto = new SubFormPhoto(ref dt, CurCustId, view);
             frmPhoto.ShowDialog();
-            picBox.Image = GetImageByBytes((byte[])rhdbs.cust_photo.Rows[0]["photo"]);
+            if (rhdbs.cust_photo.Rows.Count > 0)
+            {
+                picBox.Image = GetImageByBytes((byte[])rhdbs.cust_photo.Rows[0]["photo"]);
+            }
         }
 
         //将二进制数据转换成Image
