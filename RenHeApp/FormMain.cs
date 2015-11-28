@@ -93,7 +93,7 @@ namespace RenHeApp
                         continue;
                     }
 
-                    strSql = string.Format("select * from rhdbs.user_info where user_id={0} and pwd={1}",
+                    strSql = string.Format("select * from rhdbs.user_info where user_id='{0}' and pwd='{1}'",
                         sUser, sPswd);
 
                     try
