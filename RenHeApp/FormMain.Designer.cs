@@ -113,9 +113,9 @@
             this.label1.Font = new System.Drawing.Font("隶书", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(52, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(329, 22);
+            this.label1.Size = new System.Drawing.Size(384, 22);
             this.label1.TabIndex = 0;
-            this.label1.Text = "仁 和 整 形 售 后 管 理 系 统";
+            this.label1.Text = "仁 和 整 形 售 后 管 理 系 统 v1.3";
             // 
             // menuStripMain
             // 

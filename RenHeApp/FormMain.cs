@@ -62,6 +62,7 @@ namespace RenHeApp
                 return;
             }
 
+            /* deleted by yong.wang 2015/11/30
             // 试用限制 截止到2015-12-1
             DateTime TermTime = new DateTime(2015, 12, 1);
             if ( DateTime.Now >= TermTime)
@@ -70,6 +71,7 @@ namespace RenHeApp
                 this.Close();
                 return;
             }
+            */
 
             FormLogin frmLogin = new FormLogin();
             frmLogin.ShowDialog();
